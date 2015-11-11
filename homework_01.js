@@ -5,10 +5,10 @@ Dato un array di interi, restituire la loro somma fino a che non viene ritrovato
 // Iterative
 // Spazio: O(1) 
 // Tempo: O(n)
-function sumwhileneg(myarray) {
+function ex_1_I(a) {
     var tot = 0;
-    for(i = 0; i < myarray.length; ++i) {
-        var x = myarray[i];
+    for(i = 0; i < a.length; ++i) {
+        var x = a[i];
         if (x > 0) {
             tot += x;
         } else {
@@ -22,22 +22,14 @@ function sumwhileneg(myarray) {
 // Ricorsive
 // Spazio: O(n) 
 // Tempo: O(n)
-function sumwhilenegR(myarray) {
-    if (myarray.length == 0 || myarray[0] < 0) {
+function ex_1_R(a) {
+    if (a.length == 0 || a[0] < 0) {
         return 0;
     } else {
-        return myarray[0] + sumwhilenegR(myarray.slice(1));
+        return a[0] + ex_1_R(a.slice(1));
     }
 }
 
-// Per Tiziano.
-function ex_1_I(myarray) {
-    sumwhileneg(myarray);
-}
-
-function ex_1_R(myarray) {
-    sumwhilenegR(myarray);
-}
 
 /*
 Esercizio 2
@@ -45,7 +37,7 @@ Dato un numero n, restituire la somma dei primi n numeri interi positivi dispari
 */
 // Spazio: O(1) 
 // Tempo: O(n)
-function firstOdd(n) {
+function ex_2_I(a) {
     var tot = 0;
     for(i = 0; i < n; ++i) {
         tot += 1 + 2 * i;
@@ -56,23 +48,12 @@ function firstOdd(n) {
 
 // Spazio: O(n) 
 // Tempo: O(n)
-function firstOddR(n) {
+function ex_2_R(a) {
     if (n == 0) {
         return 0;
     } else {
-        return 2 * n - 1 + firstOddR(n - 1);
+        return 2 * n - 1 + ex_2_R(n - 1);
     }
-}
-
-
-
-// Per Tiziano.
-function ex_2_I(x) {
-    sumwhileneg(x);
-}
-
-function ex_2_R(x) {
-    sumwhilenegR(x);
 }
 
 
